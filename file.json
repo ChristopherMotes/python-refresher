@@ -1,5 +1,5 @@
 {
-  "number": 1,
-  "string": "one",
-  "list": [ 1, "one"]
+  "number": 10,
+  "string": "ten",
+  "list": [ 2, 4.0, "20"]
 }
