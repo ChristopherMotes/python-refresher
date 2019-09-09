@@ -6,6 +6,8 @@ def funtionOne(dictionary):
     for keys,values in dictionary.items():
         print("The key {} has the value {}".format(keys, values) )
         
+    dictionary.update({"number2": 2, "string2": "two"})
+        
     return True
     
 if __name__ == "__main__":
