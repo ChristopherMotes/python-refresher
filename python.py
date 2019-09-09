@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import math
 
 def printAndAdd(dictionary):
     """
@@ -25,18 +26,27 @@ def seekNumbersAndSquare(dictionary):
     Keywork Arguements:
     dictionary -- the dictionary
     """
+    for key in dictionary:
+        if isinstance(dictionary[key], int):
+            dictionary[key] = math.pow(dictionary[key], 2)
+        
+    return dictionary
+    
 def seekNumbersAndSquareInLists(dictionary):
     """
     Seeks all lists in the dict objects then squares numbers in those dictionaries
     Keywork Arguements:
     dictionary -- the dictionary
     """
+    return dictionary
     
 if __name__ == "__main__":
     with open('/home/ec2-user/environment/python-refresher/file.json') as json_file:
         myDict = json.load(json_file)
-    try:
         myDict = printAndAdd(myDict)
+        myDict = seekNumbersAndSquare(myDict)
+        myDict = seekNumbersAndSquareInLists(myDict)
+    try:
         print(json.dumps(myDict, indent=4))
     except:
         raise 
