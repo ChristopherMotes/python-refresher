@@ -26,9 +26,10 @@ def seekNumbersAndSquare(dictionary):
     Keywork Arguements:
     dictionary -- the dictionary
     """
+    print("Squaring objects with integers")
     for key in dictionary:
-        if isinstance(dictionary[key], int):
-            dictionary[key] = int(math.pow(dictionary[key], 2))
+        if isinstance(dictionary[key], (int, float)):
+            dictionary[key] = math.pow(dictionary[key], 2)
         
     return dictionary
     
@@ -40,7 +41,7 @@ def seekNumbersAndSquareInLists(dictionary):
     """
     for key in dictionary:
         if isinstance(dictionary[key], list):
-            dictionary[key] = [item**2 if isinstance(item, int) else item for item in dictionary[key] ]
+            dictionary[key] = [math.pow(item, 2) if isinstance(item, (int, float)) else item for item in dictionary[key] ]
         
     return dictionary
     
