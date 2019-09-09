@@ -38,6 +38,10 @@ def seekNumbersAndSquareInLists(dictionary):
     Keywork Arguements:
     dictionary -- the dictionary
     """
+    for key in dictionary:
+        if isinstance(dictionary[key], list):
+            dictionary[key] = [item**2 if isinstance(item, int) else item for item in dictionary[key] ]
+        
     return dictionary
     
 if __name__ == "__main__":
