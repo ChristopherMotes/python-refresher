@@ -18,6 +18,19 @@ def printAndAdd(dictionary):
         raise Exception("Updating the dictionary failed")
         
     return dictionary
+
+def seekNumbersAndSquare(dictionary):
+    """
+    Seeks all numbers in the dict objects and squares them
+    Keywork Arguements:
+    dictionary -- the dictionary
+    """
+def seekNumbersAndSquareInLists(dictionary):
+    """
+    Seeks all lists in the dict objects then squares numbers in those dictionaries
+    Keywork Arguements:
+    dictionary -- the dictionary
+    """
     
 if __name__ == "__main__":
     with open('/home/ec2-user/environment/python-refresher/file.json') as json_file:
