@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
+import json
 
-def funtionOne():
-    return False
+def funtionOne(dictionary):
+    print(dictionary)
+    for keys,values in dictionary.items():
+        print("The key {} has the value {}".format(keys, values) )
+        
+    return True
     
 if __name__ == "__main__":
-    if funtionOne():
+    with open('/home/ec2-user/environment/python-refresher/file.json') as json_file:
+        myDict = json.load(json_file)
+    if funtionOne(myDict):
         print("test valid")
     else:
         print("test invalid")
