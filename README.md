@@ -8,4 +8,5 @@ echo "venv" > .gitignore
 git add .gitignore
 virtualenv -p python3 venv/
 . venv/bin/activate
+pip install -r requirements.txt
 ```
