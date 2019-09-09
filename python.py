@@ -28,7 +28,7 @@ def seekNumbersAndSquare(dictionary):
     """
     for key in dictionary:
         if isinstance(dictionary[key], int):
-            dictionary[key] = math.pow(dictionary[key], 2)
+            dictionary[key] = int(math.pow(dictionary[key], 2))
         
     return dictionary
     
