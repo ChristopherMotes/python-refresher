@@ -3,7 +3,10 @@ import json
 
 def printAndAdd(dictionary):
     """
-    Prints the 
+    Prints the current diction and adds new objects
+    Keywork Arguements:
+    dictionary -- the dictionary
+    """
     for keys,values in dictionary.items():
         print("The key {} has the value {}".format(keys, values) )
         
