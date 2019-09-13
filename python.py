@@ -2,6 +2,12 @@
 import json
 import math
 
+
+def importFromFile():
+    with open('/home/ec2-user/environment/python-refresher/file.json') as json_file:
+        return json.load(json_file)
+    
+
 def printAndAdd(dictionary):
     """
     Prints the current diction and adds new objects
@@ -46,11 +52,17 @@ def seekNumbersAndSquareInLists(dictionary):
     return dictionary
     
 if __name__ == "__main__":
-    with open('/home/ec2-user/environment/python-refresher/file.json') as json_file:
-        myDict = json.load(json_file)
-        myDict = printAndAdd(myDict)
-        myDict = seekNumbersAndSquare(myDict)
-        myDict = seekNumbersAndSquareInLists(myDict)
+    dataCall = input("Enter file or http: ")
+    if dataCall == 'file':
+        myDict = importFromFile()
+    elif dataCall == 'http':
+        print('https')
+    else:
+        raise Exception("I don't know \"{}\"".format(dataCall))
+        
+    myDict = printAndAdd(myDict)
+    myDict = seekNumbersAndSquare(myDict)
+    myDict = seekNumbersAndSquareInLists(myDict)
     try:
         print(json.dumps(myDict, indent=4))
     except:
