@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 import json
 import math
+import requests
+from retrying import retry
 
 
+@retry(
+    stop_max_attempt_number = 3,
+    wait_exponential_multiplier=1000,
+    wait_exponential_max=10000
+    )
 def importFromFile():
     with open('/home/ec2-user/environment/python-refresher/file.json') as json_file:
         return json.load(json_file)
@@ -51,12 +58,26 @@ def seekNumbersAndSquareInLists(dictionary):
         
     return dictionary
     
+def importFromHTTP():
+    try:
+        requests.adapters.HTTPAdapter(max_retries=0)
+        response = requests.get( "https://swapi.com/api/" + "people/1/" )
+    except requests.exceptions.ConnectionError as errorMessage:
+        print(errorMessage)
+    except requestrequests.exceptions.ConnectionRefusedError:
+        print("TLCpl1996")
+    except:
+        raise
+    print(response)
+    print(response.text)
+    return json.loads(response.text)
+    
 if __name__ == "__main__":
     dataCall = input("Enter file or http: ")
     if dataCall == 'file':
         myDict = importFromFile()
     elif dataCall == 'http':
-        print('https')
+        myDict = importFromHTTP()
     else:
         raise Exception("I don't know \"{}\"".format(dataCall))
         
